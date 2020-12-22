@@ -3,40 +3,34 @@
 using namespace std;
 int main()
 {
-HANDLE colors=GetStdHandle(STD_OUTPUT_HANDLE);
-	
+	HANDLE h=GetStdHandle(STD_OUTPUT_HANDLE );
+	SetConsoleTextAttribute(h,FOREGROUND_RED|FOREGROUND_INTENSITY);
     int i, j, n;
-    SetConsoleTextAttribute(colors,5);
     cout<<"Enter value of n : ";
     cin>>n;
     cout<<endl;
     for(i=n/2; i<=n; i+=2)
-    {	
-	
+    {
         for(j=1; j<n-i; j+=2)
         {
-        	SetConsoleTextAttribute(colors,0);
             cout<<" ";
         }
 
         for(j=1; j<=i; j++)
         {
-		 SetConsoleTextAttribute(colors,j);
             cout<<"*";
         }
 
         for(j=1; j<=n-i; j++)
         {
-        	SetConsoleTextAttribute(colors,0);
             cout<<(" ");
         }
 
         for(j=1; j<=i; j++)
         {
-        	SetConsoleTextAttribute(colors,j);
             cout<<"*";
         }
-       SetConsoleTextAttribute(colors,0);
+
         cout<<"\n";
     }
 
@@ -44,19 +38,16 @@ HANDLE colors=GetStdHandle(STD_OUTPUT_HANDLE);
     {
         for(j=i; j<n; j++)
         {
-        	SetConsoleTextAttribute(colors,0);
             cout<<" ";
         }
 
         for(j=1; j<=(i*2)-1; j++)
         {
-        	SetConsoleTextAttribute(colors,j);
             cout<<"*";
         }
-          SetConsoleTextAttribute(colors,0);
+
         cout<<"\n";
     }
-   
 
     return 0;
 }
